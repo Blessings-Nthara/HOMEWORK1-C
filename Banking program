@@ -1,0 +1,71 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+void main()
+{
+  char Username[50],password[10];//You can enter letters and numbers at the same time
+  int option;
+  int deposit,withdraw,send;
+  float accountnumber;
+  int Balance=5000;
+  printf("\t\tBANK ASYA\n");
+  printf("Please enter your username:");
+  scanf("%s",Username);
+  printf("Please enter your password:");
+  scanf("%s",password);
+  while(1)// It provides entering of an infinitive loop
+{
+  printf("\t\tMENU\n");
+  printf("1**The balance in your account\n");
+  printf("2**To deposit money to your account\n");
+  printf("3**To withdraw money from your account\n");
+  printf("4**To send money to another account\n");
+  printf("5**Exit\n");
+  printf("Choose an option:");
+  scanf("%d",&option);
+  if(option==1)
+  printf("Your balance in the bank:%d TL",Balance);
+  else if(option==2)
+{
+  printf("How much money do you want to deposit to your account:");
+  scanf("%d",&deposit);
+  Balance=Balance+deposit;
+  printf("Your Work is done...Your new balance is:%d\n",Balance);
+}
+  else if(option==3)
+{
+  printf("How much money do you want to withdraw from your account:");
+  scanf("%d",&withdraw);
+  if(withdraw>Balance)//It provides a function that you cant withdraw more money than your balance
+  printf("You dont have enough money in your account to make this transaction\n");
+  else
+{
+  Balance=Balance-withdraw;
+  printf("Your transaction is completed...Your Balance:%d TL\n",Balance);
+}
+}
+  else if(option==4)
+{
+  printf("If you want to send money,Enter account Number:");
+  scanf("%f",&accountnumber);
+  printf("\nHow much money do you want to send?:");
+  scanf("%d",&send);
+  if(send>Balance)//It provides a function that you cannot send money more than your balance
+  printf("Customer you have requested to send more money than your balance\n");
+  else
+{
+  Balance=Balance-send;
+  printf("Your transaction is completed...Your remaining Money:%d TL\n",Balance);
+}
+}
+  else if(option==5)
+{
+  printf("Good day Customer.Thank you!!!!!!!!\n");
+  getchar();
+}
+  else
+  printf("1,2,3,4,5 Enter Number");
+  printf("\n");
+  break;
+}
+}
